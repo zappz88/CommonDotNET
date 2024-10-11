@@ -1,10 +1,10 @@
 ﻿namespace Common.CommandLine
 {
-    public class CommandLineArgumentHandler : ArgumentHandler
+    public class CommandLineArgumentHandlerBase : ArgumentHandler
     {
         protected readonly List<string> ParameterList;
 
-        public CommandLineArgumentHandler(List<string> parameterList) : base(Environment.GetCommandLineArgs())
+        public CommandLineArgumentHandlerBase(List<string> parameterList) : base(Environment.GetCommandLineArgs())
         {
             ParameterList = parameterList;
         }

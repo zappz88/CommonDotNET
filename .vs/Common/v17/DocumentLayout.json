@@ -3,8 +3,48 @@
   "WorkspaceRootPath": "C:\\Users\\arams\\source\\repos\\Common\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{D47A2300-654A-4DB1-B60B-F62B72ABF550}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\commandline\\argumenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{D47A2300-654A-4DB1-B60B-F62B72ABF550}|Common\\Common.csproj|solutionrelative:common\\commandline\\argumenthandler.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\mysql\\mysqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\mysql\\mysqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\oracle\\oracledbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\oracle\\oracledbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\sql\\sqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\sql\\sqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\xmlconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\xmlconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\dbcontextdaofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\dbcontextdaofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\dbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\dbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\iconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\iconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\jsonconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\jsonconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\dbcontext.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\source\\repos\\common\\common\\database\\connectionstringproviderfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\connectionstringproviderfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -19,14 +59,144 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "ArgumentHandler.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\CommandLine\\ArgumentHandler.cs",
-              "RelativeDocumentMoniker": "Common\\CommandLine\\ArgumentHandler.cs",
-              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\CommandLine\\ArgumentHandler.cs",
-              "RelativeToolTip": "Common\\CommandLine\\ArgumentHandler.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAAAAAA",
+              "Title": "MySqlDbContextDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\MySql\\MySqlDbContextDao.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\MySql\\MySqlDbContextDao.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\MySql\\MySqlDbContextDao.cs",
+              "RelativeToolTip": "Common\\Database\\MySql\\MySqlDbContextDao.cs",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAAAC0AAACkAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-07-08T06:13:17.25Z",
+              "WhenOpened": "2024-10-11T23:42:33.529Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "DbContext.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContext.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\DbContext.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContext.cs",
+              "RelativeToolTip": "Common\\Database\\DbContext.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T23:17:52.503Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "DbContextDaoFactory.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContextDaoFactory.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\DbContextDaoFactory.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContextDaoFactory.cs",
+              "RelativeToolTip": "Common\\Database\\DbContextDaoFactory.cs",
+              "ViewState": "AQIAAAEAAAAAAAAAAAAAAA4AAAAwAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-11T23:17:37.537Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "DbContextDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContextDao.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\DbContextDao.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\DbContextDao.cs",
+              "RelativeToolTip": "Common\\Database\\DbContextDao.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAABXAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:45:40.452Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "OracleDbContextDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\Oracle\\OracleDbContextDao.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\Oracle\\OracleDbContextDao.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\Oracle\\OracleDbContextDao.cs",
+              "RelativeToolTip": "Common\\Database\\Oracle\\OracleDbContextDao.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAMAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T17:44:49.21Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "XMLConnectionStringProvider.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\XMLConnectionStringProvider.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\XMLConnectionStringProvider.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\XMLConnectionStringProvider.cs",
+              "RelativeToolTip": "Common\\Database\\XMLConnectionStringProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABEAAAAJAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:46:29.417Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "JsonConnectionStringProvider.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\JsonConnectionStringProvider.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\JsonConnectionStringProvider.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\JsonConnectionStringProvider.cs",
+              "RelativeToolTip": "Common\\Database\\JsonConnectionStringProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:46:27.794Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "IConnectionStringProvider.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\IConnectionStringProvider.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\IConnectionStringProvider.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\IConnectionStringProvider.cs",
+              "RelativeToolTip": "Common\\Database\\IConnectionStringProvider.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:46:24.97Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "ConnectionStringProviderFactory.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\ConnectionStringProviderFactory.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\ConnectionStringProviderFactory.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\ConnectionStringProviderFactory.cs",
+              "RelativeToolTip": "Common\\Database\\ConnectionStringProviderFactory.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:46:18.383Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "ConnectionStringProvider.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\ConnectionStringProvider.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\ConnectionStringProvider.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\ConnectionStringProvider.cs",
+              "RelativeToolTip": "Common\\Database\\ConnectionStringProvider.cs",
+              "ViewState": "AQIAAAwAAAAAAAAAAAAAABIAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:46:14.177Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "SqlDbContextDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\Sql\\SqlDbContextDao.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\Sql\\SqlDbContextDao.cs",
+              "ToolTip": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Database\\Sql\\SqlDbContextDao.cs",
+              "RelativeToolTip": "Common\\Database\\Sql\\SqlDbContextDao.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA4AAAAhAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-10-08T01:45:55.777Z",
               "EditorCaption": ""
             }
           ]
