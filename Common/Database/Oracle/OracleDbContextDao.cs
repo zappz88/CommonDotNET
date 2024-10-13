@@ -58,6 +58,7 @@ namespace Common.Database.Oracle
             {
                 try
                 {
+                    oracleConnection.Open();
                     OracleCommand oracleCommand = (OracleCommand)this.CreateCommand(sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
@@ -94,6 +95,7 @@ namespace Common.Database.Oracle
             {
                 try
                 {
+                    oracleConnection.Open();
                     OracleCommand oracleCommand = (OracleCommand)this.CreateCommand(sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {

@@ -1,32 +1,33 @@
-﻿using System.Data.SqlClient;
+﻿using System.Data.Common;
 using System.Data;
-using System.Data.Common;
+using Npgsql;
+using NpgsqlTypes;
 
-namespace Common.Database.Sql
+namespace Common.Database.Postgres
 {
-    public class SqlDbContextDao : DbContextDao
+    public class PostgresDbContextDao : DbContextDao
     {
-        public SqlDbContextDao(string connectionString) : base(connectionString) { }
+        public PostgresDbContextDao(string connectionString) : base(connectionString) { }
 
-        public SqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
+        public PostgresDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
 
         public override T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters; 
+            NpgsqlParameter[] npgsqlParameters = (NpgsqlParameter[])dbParameters;
 
             T result = default;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (NpgsqlConnection npgsqlConnection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
-                    sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    npgsqlConnection.Open();
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    if (npgsqlParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        npgsqlCommand.Parameters.AddRange(npgsqlParameters);
                     }
-                    result = (T)sqlCommand.ExecuteScalar();
+                    result = (T)npgsqlCommand.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
@@ -34,7 +35,7 @@ namespace Common.Database.Sql
                 }
                 finally
                 {
-                    sqlConnection.Close();
+                    npgsqlConnection.Close();
                 }
             }
 
@@ -50,21 +51,21 @@ namespace Common.Database.Sql
 
         public override IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters;
+            NpgsqlParameter[] npgsqlParameters = (NpgsqlParameter[])dbParameters;
 
             IList<T> result = default;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (NpgsqlConnection npgsqlConnection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
-                    sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    npgsqlConnection.Open();
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    if (npgsqlParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        npgsqlCommand.Parameters.AddRange(npgsqlParameters);
                     }
-                    result = func(sqlCommand.ExecuteReader());
+                    result = func(npgsqlCommand.ExecuteReader());
                 }
                 catch (Exception ex)
                 {
@@ -72,7 +73,7 @@ namespace Common.Database.Sql
                 }
                 finally
                 {
-                    sqlConnection.Close();
+                    npgsqlConnection.Close();
                 }
             }
 
@@ -87,21 +88,21 @@ namespace Common.Database.Sql
 
         public override int ExecuteNonQuery(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters;
+            NpgsqlParameter[] npgsqlParameters = (NpgsqlParameter[])dbParameters;
 
             int result = 0;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (NpgsqlConnection npgsqlConnection = new NpgsqlConnection(this.ConnectionString))
             {
                 try
                 {
-                    sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    npgsqlConnection.Open();
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    if (npgsqlParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        npgsqlCommand.Parameters.AddRange(npgsqlParameters);
                     }
-                    result = sqlCommand.ExecuteNonQuery();
+                    result = npgsqlCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
@@ -109,7 +110,7 @@ namespace Common.Database.Sql
                 }
                 finally
                 {
-                    sqlConnection.Close();
+                    npgsqlConnection.Close();
                 }
             }
 
@@ -124,18 +125,18 @@ namespace Common.Database.Sql
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            SqlParameter sqlParameter = new SqlParameter(name, value);
-            sqlParameter.SqlDbType = (SqlDbType)dbType;
-            sqlParameter.Direction = parameterDirection;
-            return sqlParameter;
+            NpgsqlParameter npgsqlParameter = new NpgsqlParameter(name, value);
+            npgsqlParameter.NpgsqlDbType = (NpgsqlDbType)dbType;
+            npgsqlParameter.Direction = parameterDirection;
+            return npgsqlParameter;
         }
 
         public override DbCommand CreateCommand(string sql, CommandType commandType, int commandTimeout)
         {
-            SqlCommand sqlCommand = new SqlCommand(sql);
-            sqlCommand.CommandType = commandType;
-            sqlCommand.CommandTimeout = commandTimeout;
-            return sqlCommand;
+            NpgsqlCommand npgsqlCommand = new NpgsqlCommand(sql);
+            npgsqlCommand.CommandType = commandType;
+            npgsqlCommand.CommandTimeout = commandTimeout;
+            return npgsqlCommand;
         }
     }
 }

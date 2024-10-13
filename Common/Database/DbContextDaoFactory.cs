@@ -1,4 +1,6 @@
-﻿using Common.Database.Oracle;
+﻿using Common.Database.MySql;
+using Common.Database.Oracle;
+using Common.Database.Postgres;
 using Common.Database.Sql;
 using System;
 using System.Collections.Generic;
@@ -24,6 +26,12 @@ namespace Common.Database
                 case DbContextDaoType.Oracle:
                     dbContextDao = new OracleDbContextDao(connectionString);
                     break;
+                case DbContextDaoType.MySql:
+                    dbContextDao = new MySqlDbContextDao(connectionString);
+                    break;
+                case DbContextDaoType.Postgres:
+                    dbContextDao = new PostgresDbContextDao(connectionString);
+                    break;
                 default:
                     throw new NotImplementedException();
             }
@@ -42,6 +50,12 @@ namespace Common.Database
                     break;
                 case DbContextDaoType.Oracle:
                     dbContextDao = new OracleDbContextDao(connectionStringProvider);
+                    break;
+                case DbContextDaoType.MySql:
+                    dbContextDao = new MySqlDbContextDao(connectionStringProvider);
+                    break;
+                case DbContextDaoType.Postgres:
+                    dbContextDao = new PostgresDbContextDao(connectionStringProvider);
                     break;
                 default:
                     throw new NotImplementedException();

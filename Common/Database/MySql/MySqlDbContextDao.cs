@@ -1,5 +1,4 @@
 ﻿using MySql.Data.MySqlClient;
-using Oracle.ManagedDataAccess.Client;
 using System.Data;
 using System.Data.Common;
 
@@ -59,6 +58,7 @@ namespace Common.Database.MySql
             {
                 try
                 {
+                    mysqlConnection.Open();
                     MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
                     if (mySqlParameters != null)
                     {
@@ -95,6 +95,7 @@ namespace Common.Database.MySql
             {
                 try
                 {
+                    mysqlConnection.Open();
                     MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
                     if (mySqlParameters != null)
                     {

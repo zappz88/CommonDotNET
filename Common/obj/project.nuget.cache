@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "SNhCnQLkP1A=",
+  "dgSpecHash": "pvk0setfoME=",
   "success": true,
-  "projectFilePath": "C:\\Users\\arams\\source\\repos\\Common\\Common\\Common.csproj",
+  "projectFilePath": "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\Common.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\arams\\.nuget\\packages\\bouncycastle.cryptography\\2.3.1\\bouncycastle.cryptography.2.3.1.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\google.protobuf\\3.26.1\\google.protobuf.3.26.1.nupkg.sha512",
@@ -19,6 +19,7 @@
     "C:\\Users\\arams\\.nuget\\packages\\microsoft.netcore.targets\\1.1.0\\microsoft.netcore.targets.1.1.0.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\microsoft.win32.registry\\4.7.0\\microsoft.win32.registry.4.7.0.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\mysql.data\\9.0.0\\mysql.data.9.0.0.nupkg.sha512",
+    "C:\\Users\\arams\\.nuget\\packages\\npgsql\\8.0.4\\npgsql.8.0.4.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\oracle.manageddataaccess\\23.6.0\\oracle.manageddataaccess.23.6.0.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\runtime.native.system.data.sqlclient.sni\\4.7.0\\runtime.native.system.data.sqlclient.sni.4.7.0.nupkg.sha512",
     "C:\\Users\\arams\\.nuget\\packages\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni\\4.4.0\\runtime.win-arm64.runtime.native.system.data.sqlclient.sni.4.4.0.nupkg.sha512",
