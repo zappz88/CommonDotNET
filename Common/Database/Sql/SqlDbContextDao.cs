@@ -6,6 +6,8 @@ namespace Common.Database.Sql
 {
     public class SqlDbContextDao : DbContextDao
     {
+        public SqlDbContextDao() : base() { }
+
         public SqlDbContextDao(string connectionString) : base(connectionString) { }
 
         public SqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
@@ -124,7 +126,8 @@ namespace Common.Database.Sql
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            SqlParameter sqlParameter = new SqlParameter(name, value);
+            string sqlParameterName = $@"@{name}";
+            SqlParameter sqlParameter = new SqlParameter(sqlParameterName, value);
             sqlParameter.SqlDbType = (SqlDbType)dbType;
             sqlParameter.Direction = parameterDirection;
             return sqlParameter;

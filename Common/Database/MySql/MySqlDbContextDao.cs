@@ -6,6 +6,8 @@ namespace Common.Database.MySql
 {
     public class MySqlDbContextDao : DbContextDao
     {
+        public MySqlDbContextDao() : base() { }
+
         public MySqlDbContextDao(string connectionString) : base(connectionString) { }
 
         public MySqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
@@ -124,7 +126,8 @@ namespace Common.Database.MySql
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            MySqlParameter mysSqlParameter = new MySqlParameter(name, value);
+            string mysqlParameterName = $@"@{name}";
+            MySqlParameter mysSqlParameter = new MySqlParameter(mysqlParameterName, value);
             mysSqlParameter.MySqlDbType = (MySqlDbType)dbType;
             mysSqlParameter.Direction = parameterDirection;
             return mysSqlParameter;

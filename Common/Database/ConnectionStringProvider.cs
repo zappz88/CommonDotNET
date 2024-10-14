@@ -20,5 +20,11 @@
         { 
             throw new NotImplementedException();
         }
+
+        public ConnectionStringProvider SetPath(string path)
+        {
+            this.Path = path;
+            return this;
+        }
     }
 }

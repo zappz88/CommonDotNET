@@ -6,6 +6,8 @@ namespace Common.Database.Oracle
 {
     public class OracleDbContextDao : DbContextDao
     {
+        public OracleDbContextDao() : base() { }
+
         public OracleDbContextDao(string connectionString) : base(connectionString) { }
 
         public OracleDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
@@ -124,7 +126,8 @@ namespace Common.Database.Oracle
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            OracleParameter oracleParameter = new OracleParameter(name, value);
+            string oracleParameterName = $@":{name}";
+            OracleParameter oracleParameter = new OracleParameter(oracleParameterName, value);
             oracleParameter.OracleDbType = (OracleDbType)dbType;
             oracleParameter.Direction = parameterDirection;
             return oracleParameter;

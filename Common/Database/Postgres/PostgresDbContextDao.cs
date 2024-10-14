@@ -7,6 +7,8 @@ namespace Common.Database.Postgres
 {
     public class PostgresDbContextDao : DbContextDao
     {
+        public PostgresDbContextDao() : base() { }
+
         public PostgresDbContextDao(string connectionString) : base(connectionString) { }
 
         public PostgresDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
@@ -125,7 +127,8 @@ namespace Common.Database.Postgres
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            NpgsqlParameter npgsqlParameter = new NpgsqlParameter(name, value);
+            string npgsqlParameterName = $@"@{name}";
+            NpgsqlParameter npgsqlParameter = new NpgsqlParameter(npgsqlParameterName, value);
             npgsqlParameter.NpgsqlDbType = (NpgsqlDbType)dbType;
             npgsqlParameter.Direction = parameterDirection;
             return npgsqlParameter;
