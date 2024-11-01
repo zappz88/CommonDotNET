@@ -10,9 +10,9 @@ namespace Common.Database
 
     public static class DbContextDaoFactory
     {
-        public static DbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType)
+        public static AbstractDbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType)
         {
-            DbContextDao dbContextDao = null;
+            AbstractDbContextDao dbContextDao = null;
 
             switch (dbContextDaoType)
             {
@@ -35,41 +35,14 @@ namespace Common.Database
             return dbContextDao;
         }
 
-        public static DbContextDao GetDbContextDao(string dbContextDaoTypeString)
+        public static AbstractDbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType, string connectionString)
         {
-            DbContextDaoType dbContextDaoType = EnumHelper.TryParse<DbContextDaoType>(dbContextDaoTypeString);
-
-            DbContextDao dbContextDao = null;
+            AbstractDbContextDao dbContextDao = null;
 
             switch (dbContextDaoType)
             {
                 case DbContextDaoType.Sql:
-                    dbContextDao = new SqlDbContextDao();
-                    break;
-                case DbContextDaoType.Oracle:
-                    dbContextDao = new OracleDbContextDao();
-                    break;
-                case DbContextDaoType.MySql:
-                    dbContextDao = new MySqlDbContextDao();
-                    break;
-                case DbContextDaoType.Postgres:
-                    dbContextDao = new PostgresDbContextDao();
-                    break;
-                default:
-                    throw new NotImplementedException();
-            }
-
-            return dbContextDao;
-        }
-
-        public static DbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType, string connectionString) 
-        {
-            DbContextDao dbContextDao = null;
-
-            switch (dbContextDaoType) 
-            { 
-                case DbContextDaoType.Sql:
-                    dbContextDao = new SqlDbContextDao(connectionString); 
+                    dbContextDao = new SqlDbContextDao(connectionString);
                     break;
                 case DbContextDaoType.Oracle:
                     dbContextDao = new OracleDbContextDao(connectionString);
@@ -87,9 +60,90 @@ namespace Common.Database
             return dbContextDao;
         }
 
-        public static DbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType, IConnectionStringProvider connectionStringProvider)
+        public static AbstractDbContextDao GetDbContextDao(DbContextDaoType dbContextDaoType, IConnectionStringProvider connectionStringProvider)
         {
-            DbContextDao dbContextDao = null;
+            AbstractDbContextDao dbContextDao = null;
+
+            switch (dbContextDaoType)
+            {
+                case DbContextDaoType.Sql:
+                    dbContextDao = new SqlDbContextDao(connectionStringProvider);
+                    break;
+                case DbContextDaoType.Oracle:
+                    dbContextDao = new OracleDbContextDao(connectionStringProvider);
+                    break;
+                case DbContextDaoType.MySql:
+                    dbContextDao = new MySqlDbContextDao(connectionStringProvider);
+                    break;
+                case DbContextDaoType.Postgres:
+                    dbContextDao = new PostgresDbContextDao(connectionStringProvider);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return dbContextDao;
+        }
+
+        public static AbstractDbContextDao GetDbContextDao(string dbContextDaoTypeString)
+        {
+            DbContextDaoType dbContextDaoType = EnumHelper.TryParse<DbContextDaoType>(dbContextDaoTypeString);
+
+            AbstractDbContextDao dbContextDao = null;
+
+            switch (dbContextDaoType)
+            {
+                case DbContextDaoType.Sql:
+                    dbContextDao = new SqlDbContextDao();
+                    break;
+                case DbContextDaoType.Oracle:
+                    dbContextDao = new OracleDbContextDao();
+                    break;
+                case DbContextDaoType.MySql:
+                    dbContextDao = new MySqlDbContextDao();
+                    break;
+                case DbContextDaoType.Postgres:
+                    dbContextDao = new PostgresDbContextDao();
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return dbContextDao;
+        }
+
+        public static AbstractDbContextDao GetDbContextDao(string dbContextDaoTypeString, string connectionString)
+        {
+            DbContextDaoType dbContextDaoType = EnumHelper.TryParse<DbContextDaoType>(dbContextDaoTypeString);
+
+            AbstractDbContextDao dbContextDao = null;
+
+            switch (dbContextDaoType)
+            {
+                case DbContextDaoType.Sql:
+                    dbContextDao = new SqlDbContextDao(connectionString);
+                    break;
+                case DbContextDaoType.Oracle:
+                    dbContextDao = new OracleDbContextDao(connectionString);
+                    break;
+                case DbContextDaoType.MySql:
+                    dbContextDao = new MySqlDbContextDao(connectionString);
+                    break;
+                case DbContextDaoType.Postgres:
+                    dbContextDao = new PostgresDbContextDao(connectionString);
+                    break;
+                default:
+                    throw new NotImplementedException();
+            }
+
+            return dbContextDao;
+        }
+
+        public static AbstractDbContextDao GetDbContextDao(string dbContextDaoTypeString, IConnectionStringProvider connectionStringProvider)
+        {
+            DbContextDaoType dbContextDaoType = EnumHelper.TryParse<DbContextDaoType>(dbContextDaoTypeString);
+
+            AbstractDbContextDao dbContextDao = null;
 
             switch (dbContextDaoType)
             {

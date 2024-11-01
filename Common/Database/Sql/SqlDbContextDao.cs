@@ -4,7 +4,7 @@ using System.Data.Common;
 
 namespace Common.Database.Sql
 {
-    public class SqlDbContextDao : DbContextDao
+    public class SqlDbContextDao : AbstractDbContextDao
     {
         public SqlDbContextDao() : base() { }
 

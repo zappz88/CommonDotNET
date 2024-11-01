@@ -4,7 +4,7 @@ using System.Data.Common;
 
 namespace Common.Database.Oracle
 {
-    public class OracleDbContextDao : DbContextDao
+    public class OracleDbContextDao : AbstractDbContextDao
     {
         public OracleDbContextDao() : base() { }
 
@@ -18,12 +18,12 @@ namespace Common.Database.Oracle
 
             T result = default;
 
-            using (OracleConnection oracleConnection = new OracleConnection(this.ConnectionString))
+            using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
             {
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);
@@ -52,16 +52,16 @@ namespace Common.Database.Oracle
 
         public override IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            OracleParameter[] oracleParameters = (OracleParameter[])dbParameters;         
+            OracleParameter[] oracleParameters = (OracleParameter[])dbParameters;
 
             IList<T> result = default;
 
-            using (OracleConnection oracleConnection = new OracleConnection(this.ConnectionString))
+            using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
             {
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);
@@ -93,12 +93,12 @@ namespace Common.Database.Oracle
 
             int result = 0;
 
-            using (OracleConnection oracleConnection = new OracleConnection(this.ConnectionString))
+            using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
             {
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);

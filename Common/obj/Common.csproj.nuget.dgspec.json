@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\Common.csproj": {}
+    "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Common.csproj": {}
   },
   "projects": {
-    "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\Common.csproj": {
+    "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Common.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\Common.csproj",
+        "projectUniqueName": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Common.csproj",
         "projectName": "Common",
-        "projectPath": "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\Common.csproj",
+        "projectPath": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Common.csproj",
         "packagesPath": "C:\\Users\\arams\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\arams\\Documents\\GitHubRepos\\Common\\Common\\obj\\",
+        "outputPath": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
@@ -52,17 +52,17 @@
           "dependencies": {
             "Microsoft.Extensions.Logging": {
               "target": "Package",
-              "version": "[8.0.0, )"
+              "version": "[8.0.1, )"
             },
             "MySql.Data": {
               "target": "Package",
-              "version": "[9.0.0, )"
+              "version": "[9.1.0, )"
             },
             "Npgsql": {
               "target": "Package",
-              "version": "[8.0.4, )"
+              "version": "[8.0.5, )"
             },
-            "Oracle.ManagedDataAccess": {
+            "Oracle.ManagedDataAccess.Core": {
               "target": "Package",
               "version": "[23.6.0, )"
             },

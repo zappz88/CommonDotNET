@@ -5,7 +5,7 @@ using NpgsqlTypes;
 
 namespace Common.Database.Postgres
 {
-    public class PostgresDbContextDao : DbContextDao
+    public class PostgresDbContextDao : AbstractDbContextDao
     {
         public PostgresDbContextDao() : base() { }
 

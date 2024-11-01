@@ -4,7 +4,7 @@ using System.Data.Common;
 
 namespace Common.Database.MySql
 {
-    public class MySqlDbContextDao : DbContextDao
+    public class MySqlDbContextDao : AbstractDbContextDao
     {
         public MySqlDbContextDao() : base() { }
 
