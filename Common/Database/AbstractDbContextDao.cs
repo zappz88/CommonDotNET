@@ -31,8 +31,10 @@ namespace Common.Database
 
         public abstract int ExecuteNonQuery(string sql, IList<DbParameter> dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400);
 
+        public abstract DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType = CommandType.Text, int commandTimeout = 400);
+
         public abstract DbParameter CreateParameter(string name, object value, DbType dbType = DbType.AnsiString, ParameterDirection parameterDirection = ParameterDirection.Input);
 
-        public abstract DbCommand CreateCommand(string sql, CommandType commandType = CommandType.Text, int commandTimeout = 400);
+        public abstract string FormatParameterName(string name);
     }
 }

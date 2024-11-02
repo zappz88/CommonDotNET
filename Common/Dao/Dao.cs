@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
 using Common.Database;
 
@@ -43,6 +38,51 @@ namespace Common.Dao
         public Dao(string dbContextDaoTypeString, IConnectionStringProvider connectionStringProvider)
         {
             this.AbstractDbContextDao = DbContextDaoFactory.GetDbContextDao(dbContextDaoTypeString, connectionStringProvider);
+        }
+
+        public T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteScalar<T>(sql, dbParameters, commandType, commandTimeout);
+        }
+
+        public T ExecuteScalar<T>(string sql, IList<DbParameter> dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteScalar<T>(sql, dbParameters, commandType, commandTimeout);
+        }
+
+        public IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteReader(sql, func, dbParameters, commandType, commandTimeout);
+        }
+
+        public IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, IList<DbParameter> dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteReader(sql, func, dbParameters, commandType, commandTimeout);
+        }
+
+        public int ExecuteNonQuery(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteNonQuery(sql, dbParameters, commandType, commandTimeout);
+        }
+
+        public int ExecuteNonQuery(string sql, IList<DbParameter> dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
+        {
+            return this.AbstractDbContextDao.ExecuteNonQuery(sql, dbParameters, commandType, commandTimeout);
+        }
+
+        public DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType, int commandTimeout)
+        {
+            return this.AbstractDbContextDao.CreateCommand(dbConnection, sql, commandType, commandTimeout);
+        }
+
+        public DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
+        {
+            return this.AbstractDbContextDao.CreateParameter(name, value, dbType, parameterDirection);
+        }
+
+        public string FormatParameterName(string name)
+        {
+            return this.AbstractDbContextDao.FormatParameterName(name);
         }
     }
 }

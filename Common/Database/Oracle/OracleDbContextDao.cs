@@ -23,7 +23,7 @@ namespace Common.Database.Oracle
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);
@@ -61,7 +61,7 @@ namespace Common.Database.Oracle
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);
@@ -98,7 +98,7 @@ namespace Common.Database.Oracle
                 try
                 {
                     oracleConnection.Open();
-                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(sql, commandType, commandTimeout);
+                    OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
                     if (oracleParameters != null)
                     {
                         oracleCommand.Parameters.AddRange(oracleParameters);
@@ -124,21 +124,26 @@ namespace Common.Database.Oracle
             return ExecuteNonQuery(sql, dbParameterArray, commandType, commandTimeout);
         }
 
+        public override DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType, int commandTimeout)
+        {
+            OracleCommand oracleCommand = new OracleCommand(sql, (OracleConnection)dbConnection);
+            oracleCommand.CommandType = commandType;
+            oracleCommand.CommandTimeout = commandTimeout;
+            return oracleCommand;
+        }
+
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string oracleParameterName = $@":{name}";
+            string oracleParameterName = this.FormatParameterName(name);
             OracleParameter oracleParameter = new OracleParameter(oracleParameterName, value);
             oracleParameter.OracleDbType = (OracleDbType)dbType;
             oracleParameter.Direction = parameterDirection;
             return oracleParameter;
         }
 
-        public override DbCommand CreateCommand(string sql, CommandType commandType, int commandTimeout)
+        public override string FormatParameterName(string name)
         {
-            OracleCommand oracleCommand = new OracleCommand(sql);
-            oracleCommand.CommandType = commandType;
-            oracleCommand.CommandTimeout = commandTimeout;
-            return oracleCommand;
+            return $@":{name}";
         }
     }
 }

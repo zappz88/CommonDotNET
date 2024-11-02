@@ -1,6 +1,7 @@
 ﻿using System.Data.SqlClient;
 using System.Data;
 using System.Data.Common;
+using MySql.Data.MySqlClient;
 
 namespace Common.Database.Sql
 {
@@ -14,8 +15,6 @@ namespace Common.Database.Sql
 
         public override T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters; 
-
             T result = default;
 
             using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
@@ -23,10 +22,10 @@ namespace Common.Database.Sql
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        sqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = (T)sqlCommand.ExecuteScalar();
                 }
@@ -52,8 +51,6 @@ namespace Common.Database.Sql
 
         public override IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters;
-
             IList<T> result = default;
 
             using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
@@ -61,10 +58,10 @@ namespace Common.Database.Sql
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        sqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = func(sqlCommand.ExecuteReader());
                 }
@@ -89,8 +86,6 @@ namespace Common.Database.Sql
 
         public override int ExecuteNonQuery(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            SqlParameter[] sqlParameters = (SqlParameter[])dbParameters;
-
             int result = 0;
 
             using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
@@ -98,10 +93,10 @@ namespace Common.Database.Sql
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
-                    if (sqlParameters != null)
+                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        sqlCommand.Parameters.AddRange(sqlParameters);
+                        sqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = sqlCommand.ExecuteNonQuery();
                 }
@@ -124,21 +119,25 @@ namespace Common.Database.Sql
             return ExecuteNonQuery(sql, dbParameterArray, commandType, commandTimeout);
         }
 
+        public override DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType, int commandTimeout)
+        {
+            SqlCommand sqlCommand = new SqlCommand(sql, (SqlConnection)dbConnection);
+            sqlCommand.CommandType = commandType;
+            sqlCommand.CommandTimeout = commandTimeout;
+            return sqlCommand;
+        }
+
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string sqlParameterName = $@"@{name}";
+            string sqlParameterName = this.FormatParameterName(name);
             SqlParameter sqlParameter = new SqlParameter(sqlParameterName, value);
-            sqlParameter.SqlDbType = (SqlDbType)dbType;
+            sqlParameter.SqlDbType = SqlDbTypeResolver.ResolveDbType(dbType);
             sqlParameter.Direction = parameterDirection;
             return sqlParameter;
         }
 
-        public override DbCommand CreateCommand(string sql, CommandType commandType, int commandTimeout)
-        {
-            SqlCommand sqlCommand = new SqlCommand(sql);
-            sqlCommand.CommandType = commandType;
-            sqlCommand.CommandTimeout = commandTimeout;
-            return sqlCommand;
+        public override string FormatParameterName(string name) {
+            return $@"@{name}";
         }
     }
 }

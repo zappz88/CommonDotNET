@@ -24,7 +24,7 @@ namespace Common.Database.Postgres
                 try
                 {
                     npgsqlConnection.Open();
-                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(npgsqlConnection, sql, commandType, commandTimeout);
                     if (npgsqlParameters != null)
                     {
                         npgsqlCommand.Parameters.AddRange(npgsqlParameters);
@@ -62,7 +62,7 @@ namespace Common.Database.Postgres
                 try
                 {
                     npgsqlConnection.Open();
-                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(npgsqlConnection, sql, commandType, commandTimeout);
                     if (npgsqlParameters != null)
                     {
                         npgsqlCommand.Parameters.AddRange(npgsqlParameters);
@@ -99,7 +99,7 @@ namespace Common.Database.Postgres
                 try
                 {
                     npgsqlConnection.Open();
-                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    NpgsqlCommand npgsqlCommand = (NpgsqlCommand)this.CreateCommand(npgsqlConnection,sql, commandType, commandTimeout);
                     if (npgsqlParameters != null)
                     {
                         npgsqlCommand.Parameters.AddRange(npgsqlParameters);
@@ -125,21 +125,26 @@ namespace Common.Database.Postgres
             return ExecuteNonQuery(sql, dbParameterArray, commandType, commandTimeout);
         }
 
+        public override DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType, int commandTimeout)
+        {
+            NpgsqlCommand npgsqlCommand = new NpgsqlCommand(sql, (NpgsqlConnection)dbConnection);
+            npgsqlCommand.CommandType = commandType;
+            npgsqlCommand.CommandTimeout = commandTimeout;
+            return npgsqlCommand;
+        }
+
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string npgsqlParameterName = $@"@{name}";
+            string npgsqlParameterName = this.FormatParameterName(name);
             NpgsqlParameter npgsqlParameter = new NpgsqlParameter(npgsqlParameterName, value);
             npgsqlParameter.NpgsqlDbType = (NpgsqlDbType)dbType;
             npgsqlParameter.Direction = parameterDirection;
             return npgsqlParameter;
         }
 
-        public override DbCommand CreateCommand(string sql, CommandType commandType, int commandTimeout)
+        public override string FormatParameterName(string name)
         {
-            NpgsqlCommand npgsqlCommand = new NpgsqlCommand(sql);
-            npgsqlCommand.CommandType = commandType;
-            npgsqlCommand.CommandTimeout = commandTimeout;
-            return npgsqlCommand;
+            return $@"@{name}";
         }
     }
 }

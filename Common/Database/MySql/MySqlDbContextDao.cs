@@ -23,7 +23,7 @@ namespace Common.Database.MySql
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
                     if (mySqlParameters != null)
                     {
                         mySqlCommand.Parameters.AddRange(mySqlParameters);
@@ -61,7 +61,7 @@ namespace Common.Database.MySql
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
                     if (mySqlParameters != null)
                     {
                         mySqlCommand.Parameters.AddRange(mySqlParameters);
@@ -98,7 +98,7 @@ namespace Common.Database.MySql
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(sql, commandType, commandTimeout);
+                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
                     if (mySqlParameters != null)
                     {
                         mySqlCommand.Parameters.AddRange(mySqlParameters);
@@ -124,23 +124,28 @@ namespace Common.Database.MySql
             return ExecuteNonQuery(sql, dbParameterArray, commandType, commandTimeout);
         }
 
+        public override DbCommand CreateCommand(DbConnection dbConnection, string sql, CommandType commandType, int commandTimeout)
+        {
+            MySqlCommand mySqlCommand = new MySqlCommand(sql, (MySqlConnection)dbConnection);
+            mySqlCommand.CommandType = commandType;
+            mySqlCommand.CommandTimeout = commandTimeout;
+            return mySqlCommand;
+
+            
+        }
+
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string mysqlParameterName = $@"@{name}";
+            string mysqlParameterName = this.FormatParameterName(name);
             MySqlParameter mysSqlParameter = new MySqlParameter(mysqlParameterName, value);
             mysSqlParameter.MySqlDbType = (MySqlDbType)dbType;
             mysSqlParameter.Direction = parameterDirection;
             return mysSqlParameter;
         }
 
-        public override DbCommand CreateCommand(string sql, CommandType commandType, int commandTimeout)
+        public override string FormatParameterName(string name)
         {
-            MySqlCommand mySqlCommand = new MySqlCommand(sql);
-            mySqlCommand.CommandType = commandType;
-            mySqlCommand.CommandTimeout = commandTimeout;
-            return mySqlCommand;
-
-            
+            return $@":{name}";
         }
     }
 }

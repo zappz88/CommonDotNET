@@ -1,6 +1,8 @@
 ﻿using Common.Database;
 using Common.Model;
+using System.Data;
 using System.Data.Common;
+using System.Data.SqlTypes;
 
 namespace Common.Dao
 {
@@ -22,28 +24,35 @@ namespace Common.Dao
 
         public int InsertUser(string firstName, string middleName, string lastName, int age) 
         {
-            string sql = "INSERT INTO DBO.BETATEST.USERS (FIRST_NAME, MIDDLE_NAME, lAST_NAME, AGE) VALUES (@FIRST_NAME, @MIDDLE_NAME, @LAST_NAME, @AGE);";
+            string sql = "INSERT INTO BETATEST.DBO.USERS (FIRST_NAME, MIDDLE_NAME, LAST_NAME, AGE) " +
+                         "VALUES " +
+                            "(" +
+                                $@"{FormatParameterName("FIRST_NAME")}, " +
+                                $@"{FormatParameterName("MIDDLE_NAME")}, " +
+                                $@"{FormatParameterName("LAST_NAME")}, " +
+                                $@"{FormatParameterName("AGE")} " +
+                            ");";
             IList<DbParameter> dbParameters = new List<DbParameter>()
             {
-                this.AbstractDbContextDao.CreateParameter("@FIRST_NAME", firstName),
-                this.AbstractDbContextDao.CreateParameter("@MIDDLE_NAME", middleName),
-                this.AbstractDbContextDao.CreateParameter("@LAST_NAME", lastName),
-                this.AbstractDbContextDao.CreateParameter("@AGE", age)
+                CreateParameter("FIRST_NAME", firstName),
+                CreateParameter("MIDDLE_NAME", middleName),
+                CreateParameter("LAST_NAME", lastName),
+                CreateParameter("AGE", age),
             };
-            return this.AbstractDbContextDao.ExecuteNonQuery(sql, dbParameters);
+            return ExecuteNonQuery(sql, dbParameters);
         }
 
         public User GetUserById(int userId)
         {
-            string sql = "SELECT * FROM DBO.BETATEST.USERS WHERE USER_ID = @ID;";
+            string sql = $@"SELECT * FROM BETATEST.DBO.USERS WHERE USER_ID = {this.AbstractDbContextDao.FormatParameterName("ID")};";
             IList<DbParameter> dbParameters = new List<DbParameter>()
             {
-                this.AbstractDbContextDao.CreateParameter("@ID", userId),
+                CreateParameter("ID", userId),
             };
-            return this.AbstractDbContextDao.ExecuteScalar<User>(sql, dbParameters);
+            return ExecuteScalar<User>(sql, dbParameters);
         }
 
-        public int UpdateUserById(int userId, string firstName, string middleName, string lastName, int age)
+        public int UpdateUserById(int userId, string firstName = "", string middleName = "", string lastName = "", int age = 0)
         {
             User user = this.GetUserById(userId);
             if (user == null) 
@@ -54,23 +63,33 @@ namespace Common.Dao
             firstName = string.IsNullOrEmpty(firstName) ? user.FirstName : firstName;
             middleName = string.IsNullOrEmpty(middleName) ? user.MiddleName : middleName;
             lastName = string.IsNullOrEmpty(lastName) ? user.FirstName : lastName;
+            age = age == 0 ? user.Age : age;   
 
-            string sql = "UPDATE DBO.BETATEST.USERS SET FIRST_NAME =  WHERE USER_ID = @ID;";
+            string sql = "UPDATE BETATEST.DBO.USERS " +
+                            $@"SET FIRST_NAME = {FormatParameterName("FIRST_NAME")} " +
+                            $@"SET MIDDLE_NAME = {FormatParameterName("MIDDLE_NAME")} " +
+                            $@"SET LAST_NAME = {FormatParameterName("LAST_NAME")} " +
+                            $@"SET AGE = {FormatParameterName("AGE")} " +
+                                $@"WHERE USER_ID = {FormatParameterName("ID")};";
             IList<DbParameter> dbParameters = new List<DbParameter>()
             {
-                this.AbstractDbContextDao.CreateParameter("@ID", userId),
+                CreateParameter("FIRST_NAME", firstName),
+                CreateParameter("MIDDLE_NAME", middleName),
+                CreateParameter("LAST_NAME", lastName),
+                CreateParameter("AGE", age),
+                CreateParameter("ID", userId),
             };
-            return this.AbstractDbContextDao.ExecuteNonQuery(sql, dbParameters);
+            return ExecuteNonQuery(sql, dbParameters);
         }
 
         public int DeleteUserById(int userId)
         {
-            string sql = "DELETE FROM DBO.BETATEST.USERS WHERE USER_ID = @ID;";
+            string sql = $@"DELETE FROM BETATEST.DBO.USERS WHERE USER_ID = {FormatParameterName("ID")};";
             IList<DbParameter> dbParameters = new List<DbParameter>()
             {
-                this.AbstractDbContextDao.CreateParameter("@ID", userId),
+                CreateParameter("ID", userId),
             };
-            return this.AbstractDbContextDao.ExecuteNonQuery(sql, dbParameters);
+            return ExecuteNonQuery(sql, dbParameters);
         }
     }
 }
