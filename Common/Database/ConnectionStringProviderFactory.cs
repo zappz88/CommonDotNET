@@ -1,5 +1,4 @@
 ﻿using Common.EnumUtil;
-using System.Runtime.CompilerServices;
 
 namespace Common.Database
 {
@@ -7,6 +6,7 @@ namespace Common.Database
 
     public static class ConnectionStringProviderFactory
     {
+        #region public
         public static IConnectionStringProvider GetConnectionStringProvider(ConnectionStringProviderType connectionStringProviderType) 
         { 
             IConnectionStringProvider connectionStringProvider = null;
@@ -44,7 +44,7 @@ namespace Common.Database
 
             return connectionStringProvider;
         }
-
+         
         public static IConnectionStringProvider GetConnectionStringProvider(string connectionStringProviderTypeString)
         {
             ConnectionStringProviderType connectionStringProviderType = EnumHelper.TryParse<ConnectionStringProviderType>(connectionStringProviderTypeString);
@@ -58,5 +58,6 @@ namespace Common.Database
 
             return GetConnectionStringProvider(connectionStringProviderType, path);
         }
+        #endregion
     }
 }

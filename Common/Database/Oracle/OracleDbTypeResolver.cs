@@ -1,54 +1,53 @@
 ﻿using System.Data;
+using Oracle.ManagedDataAccess.Client;
 
-namespace Common.Database.Sql
+namespace Common.Database.Oracle
 {
-    public static class SqlDbTypeResolver
+    public static class OracleDbTypeResolver
     {
         #region public
-        public static SqlDbType ResolveDbType(DbType dbType) 
+        public static OracleDbType ResolveDbType(DbType dbType)
         {
-            SqlDbType sqlDbType = SqlDbType.NVarChar;
-            
-            switch (dbType) 
+            OracleDbType oracleDbType = OracleDbType.NVarchar2;
+
+            switch (dbType)
             {
                 case DbType.Binary:
-                    sqlDbType = SqlDbType.Binary;
+                    oracleDbType = OracleDbType.Blob;
                     break;
                 case DbType.Boolean:
-                    sqlDbType = SqlDbType.Bit;
+                    oracleDbType = OracleDbType.Char;
                     break;
                 case DbType.Date:
-                    sqlDbType = SqlDbType.Date;
+                    oracleDbType = OracleDbType.Date;
                     break;
                 case DbType.DateTime:
-                    sqlDbType = SqlDbType.DateTime;
-                    break;
                 case DbType.DateTime2:
-                    sqlDbType = SqlDbType.DateTime2;
+                    oracleDbType = OracleDbType.TimeStamp;
                     break;
                 case DbType.Decimal:
-                    sqlDbType = SqlDbType.Decimal; 
+                    oracleDbType = OracleDbType.Decimal;
                     break;
                 case DbType.Double:
-                    sqlDbType = SqlDbType.Float;
+                    oracleDbType = OracleDbType.Double;
                     break;
                 case DbType.Int16:
                 case DbType.UInt16:
-                    sqlDbType = SqlDbType.SmallInt;
+                    oracleDbType = OracleDbType.Int16;
                     break;
                 case DbType.Int32:
                 case DbType.UInt32:
-                    sqlDbType = SqlDbType.Int;
+                    oracleDbType = OracleDbType.Int32;
                     break;
                 case DbType.Int64:
                 case DbType.UInt64:
-                    sqlDbType = SqlDbType.BigInt;
+                    oracleDbType = OracleDbType.Int64;
                     break;
                 default:
-                    sqlDbType = SqlDbType.NVarChar;
+                    oracleDbType = OracleDbType.NVarchar2;
                     break;
             }
-            return sqlDbType;
+            return oracleDbType;
         }
         #endregion
     }

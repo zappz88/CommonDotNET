@@ -1,20 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text.Json;
-using System.Threading.Tasks;
-
-namespace Common.Database
+﻿namespace Common.Database
 {
     public class JsonConnectionStringProvider : ConnectionStringProvider
     {
+        #region ctor
         public JsonConnectionStringProvider() : base() { }
 
         public JsonConnectionStringProvider(string path) : base(path) { }
+        #endregion
 
+        #region public
         public string GetConnectionString() 
         {
             return "";
         }
+        #endregion
     }
 }

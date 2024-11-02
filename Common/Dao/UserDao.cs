@@ -2,12 +2,12 @@
 using Common.Model;
 using System.Data;
 using System.Data.Common;
-using System.Data.SqlTypes;
 
 namespace Common.Dao
 {
-    public class UserDao : Dao
+    public class UserDao : DbContextDaoHandler
     {
+        #region ctor
         public UserDao() : base() { }
 
         public UserDao(DbContextDaoType dbContextDaoType) : base(dbContextDaoType) { }
@@ -21,6 +21,7 @@ namespace Common.Dao
         public UserDao(string dbContextDaoTypeString, string connectionString) : base (dbContextDaoTypeString, connectionString){ }
 
         public UserDao(string dbContextDaoTypeString, IConnectionStringProvider connectionStringProvider) : base(dbContextDaoTypeString, connectionStringProvider){ }
+        #endregion
 
         public int InsertUser(string firstName, string middleName, string lastName, int age) 
         {
@@ -42,20 +43,20 @@ namespace Common.Dao
             return ExecuteNonQuery(sql, dbParameters);
         }
 
-        public User GetUserById(int userId)
+        public IList<User> GetUserById(int userId)
         {
-            string sql = $@"SELECT * FROM BETATEST.DBO.USERS WHERE USER_ID = {this.AbstractDbContextDao.FormatParameterName("ID")};";
+            string sql = $@"SELECT * FROM BETATEST.DBO.USERS WHERE ID = {FormatParameterName("ID")};";
             IList<DbParameter> dbParameters = new List<DbParameter>()
             {
                 CreateParameter("ID", userId),
             };
-            return ExecuteScalar<User>(sql, dbParameters);
+            return ExecuteReader<User>(sql, BuildUsers, dbParameters);
         }
 
         public int UpdateUserById(int userId, string firstName = "", string middleName = "", string lastName = "", int age = 0)
         {
-            User user = this.GetUserById(userId);
-            if (user == null) 
+            User user = this.GetUserById(userId)[0];
+            if (user == null)
             {
                 throw new Exception("User not found.");
             }
@@ -63,7 +64,7 @@ namespace Common.Dao
             firstName = string.IsNullOrEmpty(firstName) ? user.FirstName : firstName;
             middleName = string.IsNullOrEmpty(middleName) ? user.MiddleName : middleName;
             lastName = string.IsNullOrEmpty(lastName) ? user.FirstName : lastName;
-            age = age == 0 ? user.Age : age;   
+            age = age == 0 ? user.Age : age;
 
             string sql = "UPDATE BETATEST.DBO.USERS " +
                             $@"SET FIRST_NAME = {FormatParameterName("FIRST_NAME")} " +
@@ -90,6 +91,25 @@ namespace Common.Dao
                 CreateParameter("ID", userId),
             };
             return ExecuteNonQuery(sql, dbParameters);
+        }
+
+        private IList<User> BuildUsers(IDataReader dataReader) 
+        { 
+            IList<User> users = new List<User>();
+            while (dataReader.Read()) 
+            {
+                users.Add(
+                    new User()
+                    {
+                        Id = (int)dataReader[0],
+                        FirstName = (string)dataReader[1],
+                        MiddleName = (string)dataReader[2],
+                        LastName = (string)dataReader[3],
+                        Age = (int)dataReader[4]
+                    }
+                );
+            }
+            return users;
         }
     }
 }

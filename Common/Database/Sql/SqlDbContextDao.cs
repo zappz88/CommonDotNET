@@ -1,28 +1,47 @@
-﻿using System.Data.SqlClient;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
-using MySql.Data.MySqlClient;
+using System.Data.SqlClient;
+using Microsoft.Extensions.Logging;
 
 namespace Common.Database.Sql
 {
     public class SqlDbContextDao : AbstractDbContextDao
     {
-        public SqlDbContextDao() : base() { }
+        #region prop
+        private ILogger Logger;
+        #endregion
 
-        public SqlDbContextDao(string connectionString) : base(connectionString) { }
+        #region ctor
+        public SqlDbContextDao() : base() 
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<SqlDbContextDao>();
+        }
 
-        public SqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
+        public SqlDbContextDao(string connectionString) : base(connectionString) 
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<SqlDbContextDao>();
+        }
 
+        public SqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) 
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<SqlDbContextDao>();
+        }
+        #endregion
+
+        #region public
         public override T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
             T result = default;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    SqlCommand sqlCommand = (SqlCommand)CreateCommand(sqlConnection, sql, commandType, commandTimeout);
                     if (dbParameters != null)
                     {
                         sqlCommand.Parameters.AddRange(dbParameters);
@@ -32,6 +51,7 @@ namespace Common.Database.Sql
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -53,12 +73,12 @@ namespace Common.Database.Sql
         {
             IList<T> result = default;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    SqlCommand sqlCommand = (SqlCommand)CreateCommand(sqlConnection, sql, commandType, commandTimeout);
                     if (dbParameters != null)
                     {
                         sqlCommand.Parameters.AddRange(dbParameters);
@@ -67,7 +87,8 @@ namespace Common.Database.Sql
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -88,12 +109,12 @@ namespace Common.Database.Sql
         {
             int result = 0;
 
-            using (SqlConnection sqlConnection = new SqlConnection(this.ConnectionString))
+            using (SqlConnection sqlConnection = new SqlConnection(ConnectionString))
             {
                 try
                 {
                     sqlConnection.Open();
-                    SqlCommand sqlCommand = (SqlCommand)this.CreateCommand(sqlConnection, sql, commandType, commandTimeout);
+                    SqlCommand sqlCommand = (SqlCommand)CreateCommand(sqlConnection, sql, commandType, commandTimeout);
                     if (dbParameters != null)
                     {
                         sqlCommand.Parameters.AddRange(dbParameters);
@@ -102,7 +123,8 @@ namespace Common.Database.Sql
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -129,7 +151,7 @@ namespace Common.Database.Sql
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string sqlParameterName = this.FormatParameterName(name);
+            string sqlParameterName = FormatParameterName(name);
             SqlParameter sqlParameter = new SqlParameter(sqlParameterName, value);
             sqlParameter.SqlDbType = SqlDbTypeResolver.ResolveDbType(dbType);
             sqlParameter.Direction = parameterDirection;
@@ -139,5 +161,6 @@ namespace Common.Database.Sql
         public override string FormatParameterName(string name) {
             return $@"@{name}";
         }
+        #endregion
     }
 }

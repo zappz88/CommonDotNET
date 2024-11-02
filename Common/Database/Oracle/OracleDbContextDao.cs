@@ -1,21 +1,39 @@
-﻿using Oracle.ManagedDataAccess.Client;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
+using Microsoft.Extensions.Logging;
+using Oracle.ManagedDataAccess.Client;
 
 namespace Common.Database.Oracle
 {
     public class OracleDbContextDao : AbstractDbContextDao
     {
-        public OracleDbContextDao() : base() { }
+        #region prop
+        private ILogger Logger;
+        #endregion
 
-        public OracleDbContextDao(string connectionString) : base(connectionString) { }
+        #region ctor
+        public OracleDbContextDao() : base()
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<OracleDbContextDao>();
+        }
 
-        public OracleDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
+        public OracleDbContextDao(string connectionString) : base(connectionString)
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<OracleDbContextDao>();
+        }
 
+        public OracleDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider)
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<OracleDbContextDao>();
+        }
+        #endregion
+
+        #region public
         public override T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            OracleParameter[] oracleParameters = (OracleParameter[])dbParameters;
-
             T result = default;
 
             using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
@@ -24,15 +42,16 @@ namespace Common.Database.Oracle
                 {
                     oracleConnection.Open();
                     OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
-                    if (oracleParameters != null)
+                    if (dbParameters != null)
                     {
-                        oracleCommand.Parameters.AddRange(oracleParameters);
+                        oracleCommand.Parameters.AddRange(dbParameters);
                     }
                     result = (T)oracleCommand.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -52,8 +71,6 @@ namespace Common.Database.Oracle
 
         public override IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            OracleParameter[] oracleParameters = (OracleParameter[])dbParameters;
-
             IList<T> result = default;
 
             using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
@@ -62,15 +79,16 @@ namespace Common.Database.Oracle
                 {
                     oracleConnection.Open();
                     OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
-                    if (oracleParameters != null)
+                    if (dbParameters != null)
                     {
-                        oracleCommand.Parameters.AddRange(oracleParameters);
+                        oracleCommand.Parameters.AddRange(dbParameters);
                     }
                     result = func(oracleCommand.ExecuteReader());
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -89,8 +107,6 @@ namespace Common.Database.Oracle
 
         public override int ExecuteNonQuery(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            OracleParameter[] oracleParameters = (OracleParameter[])dbParameters;
-
             int result = 0;
 
             using (OracleConnection oracleConnection = new OracleConnection(ConnectionString))
@@ -99,15 +115,16 @@ namespace Common.Database.Oracle
                 {
                     oracleConnection.Open();
                     OracleCommand oracleCommand = (OracleCommand)CreateCommand(oracleConnection, sql, commandType, commandTimeout);
-                    if (oracleParameters != null)
+                    if (dbParameters != null)
                     {
-                        oracleCommand.Parameters.AddRange(oracleParameters);
+                        oracleCommand.Parameters.AddRange(dbParameters);
                     }
                     result = oracleCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -134,9 +151,9 @@ namespace Common.Database.Oracle
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string oracleParameterName = this.FormatParameterName(name);
+            string oracleParameterName = FormatParameterName(name);
             OracleParameter oracleParameter = new OracleParameter(oracleParameterName, value);
-            oracleParameter.OracleDbType = (OracleDbType)dbType;
+            oracleParameter.OracleDbType = OracleDbTypeResolver.ResolveDbType(dbType);
             oracleParameter.Direction = parameterDirection;
             return oracleParameter;
         }
@@ -145,5 +162,6 @@ namespace Common.Database.Oracle
         {
             return $@":{name}";
         }
+        #endregion
     }
 }

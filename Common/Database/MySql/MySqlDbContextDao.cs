@@ -1,38 +1,58 @@
-﻿using MySql.Data.MySqlClient;
-using System.Data;
+﻿using System.Data;
 using System.Data.Common;
+using Common.Database.Postgres;
+using Microsoft.Extensions.Logging;
+using MySql.Data.MySqlClient;
 
 namespace Common.Database.MySql
 {
     public class MySqlDbContextDao : AbstractDbContextDao
     {
-        public MySqlDbContextDao() : base() { }
+        #region prop
+        private ILogger Logger;
+        #endregion
 
-        public MySqlDbContextDao(string connectionString) : base(connectionString) { }
+        #region ctor
+        public MySqlDbContextDao() : base()
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<MySqlDbContextDao>();
+        }
 
-        public MySqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider) { }
+        public MySqlDbContextDao(string connectionString) : base(connectionString)
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<MySqlDbContextDao>();
+        }
 
+        public MySqlDbContextDao(IConnectionStringProvider connectionStringProvider) : base(connectionStringProvider)
+        {
+            ILoggerFactory factory = new LoggerFactory();
+            Logger = factory.CreateLogger<MySqlDbContextDao>();
+        }
+        #endregion
+
+        #region public
         public override T ExecuteScalar<T>(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            MySqlParameter[] mySqlParameters = (MySqlParameter[])dbParameters;
-
             T result = default;
 
-            using (MySqlConnection mysqlConnection = new MySqlConnection(this.ConnectionString))
+            using (MySqlConnection mysqlConnection = new MySqlConnection(ConnectionString))
             {
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
-                    if (mySqlParameters != null)
+                    MySqlCommand mySqlCommand = (MySqlCommand)CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        mySqlCommand.Parameters.AddRange(mySqlParameters);
+                        mySqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = (T)mySqlCommand.ExecuteScalar();
                 }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -52,25 +72,24 @@ namespace Common.Database.MySql
 
         public override IList<T> ExecuteReader<T>(string sql, Func<IDataReader, IList<T>> func, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            MySqlParameter[] mySqlParameters = (MySqlParameter[])dbParameters;
-
             IList<T> result = default;
 
-            using (MySqlConnection mysqlConnection = new MySqlConnection(this.ConnectionString))
+            using (MySqlConnection mysqlConnection = new MySqlConnection(ConnectionString))
             {
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
-                    if (mySqlParameters != null)
+                    MySqlCommand mySqlCommand = (MySqlCommand)CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        mySqlCommand.Parameters.AddRange(mySqlParameters);
+                        mySqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = func(mySqlCommand.ExecuteReader());
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -89,25 +108,24 @@ namespace Common.Database.MySql
 
         public override int ExecuteNonQuery(string sql, DbParameter[] dbParameters = null, CommandType commandType = CommandType.Text, int commandTimeout = 400)
         {
-            MySqlParameter[] mySqlParameters = (MySqlParameter[])dbParameters;
-
             int result = 0;
 
-            using (MySqlConnection mysqlConnection = new MySqlConnection(this.ConnectionString))
+            using (MySqlConnection mysqlConnection = new MySqlConnection(ConnectionString))
             {
                 try
                 {
                     mysqlConnection.Open();
-                    MySqlCommand mySqlCommand = (MySqlCommand)this.CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
-                    if (mySqlParameters != null)
+                    MySqlCommand mySqlCommand = (MySqlCommand)CreateCommand(mysqlConnection, sql, commandType, commandTimeout);
+                    if (dbParameters != null)
                     {
-                        mySqlCommand.Parameters.AddRange(mySqlParameters);
+                        mySqlCommand.Parameters.AddRange(dbParameters);
                     }
                     result = mySqlCommand.ExecuteNonQuery();
                 }
                 catch (Exception ex)
                 {
-
+                    Console.WriteLine(ex);
+                    Logger.LogError($@"{ex.Message}: {ex.StackTrace}");
                 }
                 finally
                 {
@@ -136,9 +154,9 @@ namespace Common.Database.MySql
 
         public override DbParameter CreateParameter(string name, object value, DbType dbType = DbType.String, ParameterDirection parameterDirection = ParameterDirection.Input)
         {
-            string mysqlParameterName = this.FormatParameterName(name);
+            string mysqlParameterName = FormatParameterName(name);
             MySqlParameter mysSqlParameter = new MySqlParameter(mysqlParameterName, value);
-            mysSqlParameter.MySqlDbType = (MySqlDbType)dbType;
+            mysSqlParameter.MySqlDbType = MySqlDbTypeResolver.ResolveDbType(dbType);
             mysSqlParameter.Direction = parameterDirection;
             return mysSqlParameter;
         }
@@ -147,5 +165,6 @@ namespace Common.Database.MySql
         {
             return $@":{name}";
         }
+        #endregion
     }
 }
