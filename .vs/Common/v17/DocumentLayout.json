@@ -3,48 +3,60 @@
   "WorkspaceRootPath": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\security\\encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\security\\encryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\security\\iencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\security\\iencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\security\\regexpattern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\security\\regexpattern.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\dao\\dao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\dao\\dao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\dao\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\dao\\userdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\connectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\security\\encryptorfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\security\\encryptorfactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\security\\javascriptencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\security\\javascriptencryptor.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\iconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\iconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\jsonconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\jsonconnectionstringprovider.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\dbcontextdaofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\dbcontextdaofactory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\mysql\\mysqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\mysql\\mysqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\abstractdbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\abstractdbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\postgres\\postgresdbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\postgres\\postgresdbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\model\\user.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\oracle\\oracledbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\oracle\\oracledbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\model\\usercredential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\model\\usercredential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\oracle\\oracledbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\oracle\\oracledbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\model\\useraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\model\\useraddress.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\sql\\sqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\sql\\sqldbcontextdao.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\mysql\\mysqldbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\mysql\\mysqldbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\database\\postgres\\postgresdbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\database\\postgres\\postgresdbtyperesolver.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|c:\\users\\arams\\documents\\githubrepos\\dotnet\\core\\common\\common\\model\\credential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{C0313EF8-7679-48D1-A3B0-ED76DFB91BC9}|Common\\Common.csproj|solutionrelative:common\\model\\credential.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -59,45 +71,58 @@
             {
               "$type": "Document",
               "DocumentIndex": 0,
-              "Title": "UserDao.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\UserDao.cs",
-              "RelativeDocumentMoniker": "Common\\Dao\\UserDao.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\UserDao.cs",
-              "RelativeToolTip": "Common\\Dao\\UserDao.cs",
-              "ViewState": "AQIAAAMAAAAAAAAAAAAAAAgAAAAFAAAA",
+              "Title": "Encryptor.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\Encryptor.cs",
+              "RelativeDocumentMoniker": "Common\\Security\\Encryptor.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\Encryptor.cs",
+              "RelativeToolTip": "Common\\Security\\Encryptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAIAAAAZAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:32:37.08Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 1,
-              "Title": "ConnectionStringProvider.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\ConnectionStringProvider.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\ConnectionStringProvider.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\ConnectionStringProvider.cs",
-              "RelativeToolTip": "Common\\Database\\ConnectionStringProvider.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAABYAAAAwAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:31:27.969Z",
+              "WhenOpened": "2024-11-02T22:40:11.235Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 3,
-              "Title": "JsonConnectionStringProvider.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\JsonConnectionStringProvider.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\JsonConnectionStringProvider.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\JsonConnectionStringProvider.cs",
-              "RelativeToolTip": "Common\\Database\\JsonConnectionStringProvider.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Title": "Dao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\Dao.cs",
+              "RelativeDocumentMoniker": "Common\\Dao\\Dao.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\Dao.cs",
+              "RelativeToolTip": "Common\\Dao\\Dao.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAB4AAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:31:25.743Z",
+              "WhenOpened": "2024-11-02T21:56:49.003Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 2,
+              "Title": "RegexPattern.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\RegexPattern.cs",
+              "RelativeDocumentMoniker": "Common\\Security\\RegexPattern.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\RegexPattern.cs",
+              "RelativeToolTip": "Common\\Security\\RegexPattern.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAFAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:50:12.16Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "EncryptorFactory.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\EncryptorFactory.cs",
+              "RelativeDocumentMoniker": "Common\\Security\\EncryptorFactory.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\EncryptorFactory.cs",
+              "RelativeToolTip": "Common\\Security\\EncryptorFactory.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAwAAAAjAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:30:16.368Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
               "Title": "IConnectionStringProvider.cs",
               "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\IConnectionStringProvider.cs",
               "RelativeDocumentMoniker": "Common\\Database\\IConnectionStringProvider.cs",
@@ -105,98 +130,121 @@
               "RelativeToolTip": "Common\\Database\\IConnectionStringProvider.cs",
               "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:31:24.634Z",
+              "WhenOpened": "2024-11-02T21:19:43.047Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
-              "Title": "SqlDbContextDao.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Sql\\SqlDbContextDao.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\Sql\\SqlDbContextDao.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Sql\\SqlDbContextDao.cs",
-              "RelativeToolTip": "Common\\Database\\Sql\\SqlDbContextDao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "DocumentIndex": 1,
+              "Title": "IEncryptor.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\IEncryptor.cs",
+              "RelativeDocumentMoniker": "Common\\Security\\IEncryptor.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\IEncryptor.cs",
+              "RelativeToolTip": "Common\\Security\\IEncryptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAgAAAAfAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:28:17.082Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 7,
-              "Title": "OracleDbTypeResolver.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Oracle\\OracleDbTypeResolver.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\Oracle\\OracleDbTypeResolver.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Oracle\\OracleDbTypeResolver.cs",
-              "RelativeToolTip": "Common\\Database\\Oracle\\OracleDbTypeResolver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:01.755Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 4,
-              "Title": "MySqlDbContextDao.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\MySql\\MySqlDbContextDao.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\MySql\\MySqlDbContextDao.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\MySql\\MySqlDbContextDao.cs",
-              "RelativeToolTip": "Common\\Database\\MySql\\MySqlDbContextDao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAcAAAABAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:53.705Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 9,
-              "Title": "MySqlDbTypeResolver.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\MySql\\MySqlDbTypeResolver.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\MySql\\MySqlDbTypeResolver.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\MySql\\MySqlDbTypeResolver.cs",
-              "RelativeToolTip": "Common\\Database\\MySql\\MySqlDbTypeResolver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:52.998Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 5,
-              "Title": "PostgresDbContextDao.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Postgres\\PostgresDbContextDao.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\Postgres\\PostgresDbContextDao.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Postgres\\PostgresDbContextDao.cs",
-              "RelativeToolTip": "Common\\Database\\Postgres\\PostgresDbContextDao.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAADAAAABGAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:32.229Z",
-              "EditorCaption": ""
-            },
-            {
-              "$type": "Document",
-              "DocumentIndex": 10,
-              "Title": "PostgresDbTypeResolver.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Postgres\\PostgresDbTypeResolver.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\Postgres\\PostgresDbTypeResolver.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Postgres\\PostgresDbTypeResolver.cs",
-              "RelativeToolTip": "Common\\Database\\Postgres\\PostgresDbTypeResolver.cs",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
-              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:30.454Z",
+              "WhenOpened": "2024-11-02T21:12:26.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
               "DocumentIndex": 6,
-              "Title": "OracleDbContextDao.cs",
-              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Oracle\\OracleDbContextDao.cs",
-              "RelativeDocumentMoniker": "Common\\Database\\Oracle\\OracleDbContextDao.cs",
-              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\Oracle\\OracleDbContextDao.cs",
-              "RelativeToolTip": "Common\\Database\\Oracle\\OracleDbContextDao.cs",
-              "ViewState": "AQIAAAYAAAAAAAAAAAAAAC4AAABGAAAA",
+              "Title": "JavascriptEncryptor.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\JavascriptEncryptor.cs",
+              "RelativeDocumentMoniker": "Common\\Security\\JavascriptEncryptor.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Security\\JavascriptEncryptor.cs",
+              "RelativeToolTip": "Common\\Security\\JavascriptEncryptor.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABAAAAAJAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2024-11-02T03:26:01.973Z",
+              "WhenOpened": "2024-11-02T21:11:09.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "UserDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\UserDao.cs",
+              "RelativeDocumentMoniker": "Common\\Dao\\UserDao.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Dao\\UserDao.cs",
+              "RelativeToolTip": "Common\\Dao\\UserDao.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAOcAAAAUAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T03:32:37.08Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "DbContextDaoFactory.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\DbContextDaoFactory.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\DbContextDaoFactory.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\DbContextDaoFactory.cs",
+              "RelativeToolTip": "Common\\Database\\DbContextDaoFactory.cs",
+              "ViewState": "AQIAAAYAAAAAAAAAAAAAAAgAAABHAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:29:34.223Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "AbstractDbContextDao.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\AbstractDbContextDao.cs",
+              "RelativeDocumentMoniker": "Common\\Database\\AbstractDbContextDao.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Database\\AbstractDbContextDao.cs",
+              "RelativeToolTip": "Common\\Database\\AbstractDbContextDao.cs",
+              "ViewState": "AQIAABUAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T21:29:32.344Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Credential.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\Credential.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\Credential.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\Credential.cs",
+              "RelativeToolTip": "Common\\Model\\Credential.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA8AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T08:35:05.997Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "UserCredential.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\UserCredential.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\UserCredential.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\UserCredential.cs",
+              "RelativeToolTip": "Common\\Model\\UserCredential.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAA0AAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T08:34:55.64Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "UserAddress.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\UserAddress.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\UserAddress.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\UserAddress.cs",
+              "RelativeToolTip": "Common\\Model\\UserAddress.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAAAAAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T08:34:55.064Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "User.cs",
+              "DocumentMoniker": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\User.cs",
+              "RelativeDocumentMoniker": "Common\\Model\\User.cs",
+              "ToolTip": "C:\\Users\\arams\\Documents\\GitHubRepos\\DotNET\\Core\\Common\\Common\\Model\\User.cs",
+              "RelativeToolTip": "Common\\Model\\User.cs",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABMAAAAAAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-11-02T08:28:49.156Z",
               "EditorCaption": ""
             }
           ]

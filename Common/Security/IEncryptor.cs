@@ -4,10 +4,12 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace Common.Model
+namespace Common.Security
 {
-    public class UserCredential : Credential
+    public interface IEncryptor
     {
+        string Encrypt(string val);
 
+        string Decrypt(string val);
     }
 }

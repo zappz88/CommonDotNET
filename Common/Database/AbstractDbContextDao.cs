@@ -6,11 +6,14 @@ namespace Common.Database
     public abstract class AbstractDbContextDao
     {
         #region prop
-        protected string ConnectionString { get; set; } = "Server=localhost\\SQLEXPRESS;Database=BetaTest;Trusted_Connection=True;";
+        public string ConnectionString { get; set; } = "Server=localhost\\SQLEXPRESS;Database=BetaTest;Trusted_Connection=True;";
         #endregion
 
         #region ctor
-        public AbstractDbContextDao() { }
+        public AbstractDbContextDao() 
+        { 
+            
+        }
 
         public AbstractDbContextDao(string connectionString) 
         { 

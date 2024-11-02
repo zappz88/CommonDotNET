@@ -6,8 +6,10 @@ using System.Threading.Tasks;
 
 namespace Common.Model
 {
-    public class UserCredential : Credential
+    public class Credential
     {
+        public string Username { get; set; }
 
+        public string Password { get; set; }
     }
 }
