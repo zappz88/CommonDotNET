@@ -19,7 +19,37 @@ namespace Common.Dao
 
         #region public
         #region users
-        public int GetUserIDByCredential(string userName, string password)
+        public User GetUserByCredentials(string userName, string password)
+        {
+            string sql = "SELECT " +
+                            "* " +
+                                "FROM BETATEST.DBO.USERS " +
+                                    $@"WHERE USER_NAME = {FormatParameterName("USER_NAME")} " +
+                                    $@"AND PASSWORD = {FormatParameterName("PASSWORD")};";
+            IList<DbParameter> dbParameters = new List<DbParameter>()
+            {
+                CreateParameter("USER_NAME", userName),
+                CreateParameter("PASSWORD", password)
+            };
+            return ExecuteReader<User>(sql, BuildUsers, dbParameters)[0];
+        }
+
+        public User GetUserByCredential(Credential credential)
+        {
+            return GetUserByCredentials(credential.UserName, credential.Password);
+        }
+
+        public User GetUserByUserCredential(UserCredential userCredential)
+        {
+            return GetUserByCredentials(userCredential.UserName, userCredential.Password);
+        }
+
+        public User GetUserByUser(User user)
+        {
+            return GetUserByCredentials(user.UserName, user.Password);
+        }
+
+        public int GetUserIDByCredentials(string userName, string password)
         {
             string sql = "SELECT " +
                             "USER_ID " +
@@ -34,14 +64,19 @@ namespace Common.Dao
             return ExecuteScalar<int>(sql, dbParameters);
         }
 
+        public int GetUserIDByCredential(Credential credential)
+        {
+            return GetUserIDByCredentials(credential.UserName, credential.Password);
+        }
+
         public int GetUserIDByUserCredential(UserCredential userCredential)
         {
-            return GetUserIDByCredential(userCredential.Username, userCredential.Password);
+            return GetUserIDByCredentials(userCredential.UserName, userCredential.Password);
         }
 
         public int GetUserIDByUser(User user)
         {
-            return GetUserIDByCredential(user.UserName, user.Password);
+            return GetUserIDByCredentials(user.UserName, user.Password);
         }
 
         public User GetUserByUserID(int userId)

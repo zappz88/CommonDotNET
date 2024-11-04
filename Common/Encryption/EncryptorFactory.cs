@@ -2,7 +2,7 @@
 
 namespace Common.Encryption
 {
-    public enum EncryptorType { Basic, Base64 }
+    public enum EncryptorType { BASIC, BASE64, BASE64_BASIC }
 
     public static class EncryptorFactory
     {
@@ -13,10 +13,10 @@ namespace Common.Encryption
 
             switch (encryptorType)
             {
-                case EncryptorType.Basic:
+                case EncryptorType.BASIC:
                     encryptor = new Encryptor();
                     break;
-                case EncryptorType.Base64:
+                case EncryptorType.BASE64:
                     encryptor = new Base64Encryptor();
                     break;
                 default:
