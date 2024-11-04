@@ -2,7 +2,6 @@
 using Common.Model;
 using System.Data;
 using System.Data.Common;
-using System.Net;
 
 namespace Common.Dao
 {
@@ -35,9 +34,14 @@ namespace Common.Dao
             return ExecuteScalar<int>(sql, dbParameters);
         }
 
-        public int GetUserIDByCredential(UserCredential userCredential)
+        public int GetUserIDByUserCredential(UserCredential userCredential)
         {
             return GetUserIDByCredential(userCredential.Username, userCredential.Password);
+        }
+
+        public int GetUserIDByUser(User user)
+        {
+            return GetUserIDByCredential(user.UserName, user.Password);
         }
 
         public User GetUserByUserID(int userId)

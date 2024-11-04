@@ -13,6 +13,7 @@ C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\Microsoft.Extensions.Options.dll
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\Microsoft.Extensions.Primitives.dll
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\MySql.Data.dll
+C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\Newtonsoft.Json.dll
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\Npgsql.dll
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\Oracle.ManagedDataAccess.dll
 C:\Users\arams\Documents\GitHubRepos\DotNET\Core\Common\Common\bin\Release\net8.0\publish\System.Configuration.ConfigurationManager.dll

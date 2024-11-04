@@ -1,19 +1,23 @@
 ﻿using Common.EnumUtil;
 
-namespace Common.Security
+namespace Common.Encryption
 {
-    public enum EncryptorType { Javascript }
+    public enum EncryptorType { Basic, Base64 }
 
     public static class EncryptorFactory
     {
-        public static IEncryptor GetEncryptor(EncryptorType encryptorType) 
+        #region
+        public static IEncryptor GetEncryptor(EncryptorType encryptorType)
         {
             IEncryptor encryptor = null;
 
-            switch (encryptorType) 
-            { 
-                case EncryptorType.Javascript:
-                    encryptor = new JavascriptEncryptor();
+            switch (encryptorType)
+            {
+                case EncryptorType.Basic:
+                    encryptor = new Encryptor();
+                    break;
+                case EncryptorType.Base64:
+                    encryptor = new Base64Encryptor();
                     break;
                 default:
                     throw new NotImplementedException();
@@ -26,5 +30,6 @@ namespace Common.Security
             EncryptorType encryptorType = EnumHelper.TryParse<EncryptorType>(encryptorTypeString);
             return GetEncryptor(encryptorType);
         }
+        #endregion
     }
 }

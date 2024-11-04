@@ -1,17 +1,17 @@
 ﻿using System.Text;
 using System.Text.RegularExpressions;
 
-namespace Common.Security
+namespace Common.Encryption
 {
-    public class JavascriptEncryptor : IEncryptor
+    public class Base64Encryptor : IEncryptor
     {
         #region ctor
-        public JavascriptEncryptor() { }
+        public Base64Encryptor() { }
         #endregion
 
         #region public
         //btoa encoding
-        public string Encrypt(string val) 
+        public string Encrypt(string val)
         {
             return Convert.ToBase64String(Encoding.UTF8.GetBytes(val));
         }
@@ -19,18 +19,18 @@ namespace Common.Security
         //atob decoding
         public string Decrypt(string val)
         {
-            if (IsBase64Encrypted(val)) 
+            if (!IsEncrypted(val))
             {
-                return Encoding.UTF8.GetString(Convert.FromBase64String(val));
+                return val;
             }
-            return val;
+            return Encoding.UTF8.GetString(Convert.FromBase64String(val));
         }
         #endregion
 
         #region private
-        private bool IsBase64Encrypted(string val) 
+        private bool IsEncrypted(string val)
         {
-            return Regex.IsMatch(val, RegexPattern.Base64);
+            return Regex.IsMatch(val, RegexPattern.Base64Encryption);
         }
         #endregion
     }
