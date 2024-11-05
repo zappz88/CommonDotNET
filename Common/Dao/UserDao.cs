@@ -36,17 +36,25 @@ namespace Common.Dao
 
         public User GetUserByCredential(Credential credential)
         {
-            return GetUserByCredentials(credential.UserName, credential.Password);
+            return GetUserByCredentials(credential.Username, credential.Password);
         }
 
         public User GetUserByUserCredential(UserCredential userCredential)
         {
-            return GetUserByCredentials(userCredential.UserName, userCredential.Password);
+            return GetUserByCredentials(userCredential.Username, userCredential.Password);
         }
 
-        public User GetUserByUser(User user)
+        public User GetUserByUserID(int userId)
         {
-            return GetUserByCredentials(user.UserName, user.Password);
+            string sql = "SELECT " +
+                            "* " +
+                                "FROM BETATEST.DBO.USERS " +
+                                    $@"WHERE USER_ID = {FormatParameterName("USER_ID")};";
+            IList<DbParameter> dbParameters = new List<DbParameter>()
+            {
+                CreateParameter("USER_ID", userId, DbType.Int32)
+            };
+            return ExecuteReader(sql, BuildUsers, dbParameters)[0];
         }
 
         public int GetUserIDByCredentials(string userName, string password)
@@ -66,35 +74,12 @@ namespace Common.Dao
 
         public int GetUserIDByCredential(Credential credential)
         {
-            return GetUserIDByCredentials(credential.UserName, credential.Password);
+            return GetUserIDByCredentials(credential.Username, credential.Password);
         }
 
         public int GetUserIDByUserCredential(UserCredential userCredential)
         {
-            return GetUserIDByCredentials(userCredential.UserName, userCredential.Password);
-        }
-
-        public int GetUserIDByUser(User user)
-        {
-            return GetUserIDByCredentials(user.UserName, user.Password);
-        }
-
-        public User GetUserByUserID(int userId)
-        {
-            string sql = "SELECT " + 
-                            "* " + 
-                                "FROM BETATEST.DBO.USERS " + 
-                                    $@"WHERE USER_ID = {FormatParameterName("USER_ID")};";
-            IList<DbParameter> dbParameters = new List<DbParameter>()
-            {
-                CreateParameter("USER_ID", userId, DbType.Int32)
-            };
-            return ExecuteReader(sql, BuildUsers, dbParameters)[0];
-        }
-
-        public User GetUserByUserID(User user)
-        {
-            return GetUserByUserID(user.UserID);
+            return GetUserIDByCredentials(userCredential.Username, userCredential.Password);
         }
 
         public int InsertUser(int userId, string userName, string password, string firstName, string middleName, string lastName) 
@@ -131,10 +116,10 @@ namespace Common.Dao
 
         public int InsertUser(User user)
         {
-            return InsertUser(user.UserID, user.UserName, user.Password, user.FirstName, user.MiddleName, user.LastName);
+            return InsertUser(user.UserID, user.Username, user.Password, user.FirstName, user.MiddleName, user.LastName);
         }
 
-        public int UpdateUserByUserID(int userId, string firstName = "", string middleName = "", string lastName = "")
+        public int UpdateUser(int userId, string firstName = "", string middleName = "", string lastName = "")
         {
             User user = GetUserByUserID(userId);
             if (user == null)
@@ -161,12 +146,12 @@ namespace Common.Dao
             return ExecuteNonQuery(sql, dbParameters);
         }
 
-        public int UpdateUserByUserID(User user)
+        public int UpdateUser(User user)
         {
-            return UpdateUserAddressByUserID(user.UserID, user.FirstName, user.MiddleName, user.LastName);
+            return UpdateUser(user.UserID, user.FirstName, user.MiddleName, user.LastName);
         }
 
-        public int DeleteUserByUserID(int userId)
+        public int DeleteUser(int userId)
         {
             string sql = "DELETE FROM BETATEST.DBO.USERS " + 
                             $@"WHERE USER_ID = {FormatParameterName("USER_ID")};";
@@ -177,12 +162,11 @@ namespace Common.Dao
             return ExecuteNonQuery(sql, dbParameters);
         }
 
-        public int DeleteUserByUserID(User user)
+        public int DeleteUser(User user)
         {
-            return DeleteUserByUserID(user.UserID);
+            return DeleteUser(user.UserID);
         }
         #endregion
-
         //#region usercredentials
         //public IList<UserCredential> GetUserCredentialByUserID(int userId)
         //{
@@ -376,7 +360,7 @@ namespace Common.Dao
                     {
                         ID = (int)dataReader[0],
                         UserID = (int)dataReader[1],
-                        UserName = (string)dataReader[2],
+                        Username = (string)dataReader[2],
                         Password = (string)dataReader[3],
                         FirstName = (string)dataReader[4],
                         MiddleName = (string)dataReader[5],
